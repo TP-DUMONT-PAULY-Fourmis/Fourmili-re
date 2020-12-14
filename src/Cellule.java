@@ -10,7 +10,7 @@
  */
 public class Cellule {
 
-    private int etat; // 0 : vide -- 1 : occupée -- 2 : obstacle -- 3 : nourriture
+    private int etat; // 0 : vide -- 1 : occupée -- 2 : obstacle -- 3 : nourriture -- 4 : fourmiliere
     private int pheromones; // nombre entre 0 et 100 pourcentage de phéromones
 
     public Cellule(int etat) {
@@ -33,22 +33,26 @@ public class Cellule {
     public void setPheromones(int pheromones) {
         this.pheromones = pheromones;
     }
-    
-    public String toString(){
+
+    @Override
+    public String toString() {
         String representation;
-        if (this.etat==1){
-        representation  = "O";
+        if (this.etat == 1) {
+            representation = "O";
         }
-        if (this.etat==2){
-        representation = "X";
+        if (this.etat == 2) {
+            representation = "X";
         }
-        if (this.etat==3){
-        representation = "N";
+        if (this.etat == 3) {
+            representation = "N";
+            if (this.etat == 4) {
+                representation = "F";
+            }
         } else {
-            representation = " ";
+            representation = "_";
         }
-    
-    return representation ;
+
+        return representation;
     }
 
 }
