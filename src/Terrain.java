@@ -33,7 +33,9 @@ public class Terrain {
     }
 
     public void setCellule(int i, int j, int etat) {
-        this.grille[i][j] = new Cellule(etat);
+        if (this.tailleX - 1 >= i && this.tailleY - 1 >= j) {
+            this.grille[i][j] = new Cellule(etat);
+        }
     }
 
     public String toString() {
@@ -41,9 +43,9 @@ public class Terrain {
         int i = this.tailleX;
         int j = this.tailleY;
         for (int l = 0; l <= j - 1; l++) {
-            chaine+="\n";
+            chaine += "\n";
             for (int k = 0; k <= i - 1; k++) {
-                chaine+=this.grille[k][l].toString();
+                chaine += this.grille[k][l].toString();
             }
         }
         return chaine;
