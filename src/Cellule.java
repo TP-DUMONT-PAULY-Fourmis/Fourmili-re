@@ -34,9 +34,12 @@ public class Cellule {
         this.pheromones = pheromones;
     }
 
-    @Override
+   
     public String toString() {
-        String representation;
+        String representation="";
+        if (this.etat == 0) {
+            representation = "_";
+        }
         if (this.etat == 1) {
             representation = "O";
         }
@@ -45,12 +48,10 @@ public class Cellule {
         }
         if (this.etat == 3) {
             representation = "N";
-            if (this.etat == 4) {
-                representation = "F";
-            }
-        } else {
-            representation = "_";
         }
+        if (this.etat == 4) {
+                representation = "F";   
+        } 
 
         return representation;
     }
